@@ -1,0 +1,20 @@
+{
+  "username": "Nutzername",
+  "password": "Passwort",
+  "changePassword": "Passwort ändern",
+  "login": "Login",
+  "language": "Sprache",
+  "save": "Speichern",
+  "cart": "Warenkorb",
+  "articles": "Artikel",
+  "order": "Bestellen",
+  "order_info": "Die Bestellung kann derzeit nicht abgeschlossen werden. Die dafür notwendige Funktionalität wurde noch nicht implementiert.",
+  "personal_details": "Persönliche Details",
+  "staff_number": "Personalnummer",
+  "firstname": "Vorname",
+  "surname": "Nachname",
+  "notes": "Notizen",
+  "order_now": "Jetzt bestellen",
+  "ok": "OK",
+  "size": "Größe"
+}

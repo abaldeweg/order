@@ -1,0 +1,20 @@
+{
+  "username": "Username",
+  "password": "Password",
+  "changePassword": "Change Password",
+  "login": "Login",
+  "language": "Language",
+  "save": "Save",
+  "cart": "Cart",
+  "articles": "Articles",
+  "order": "Order",
+  "order_info": "It's not possible to submit an order. The ordering process is not yet implemented.",
+  "personal_details": "Personal Details",
+  "staff_number": "Staff Number",
+  "firstname": "Firstname",
+  "surname": "Surname",
+  "notes": "Notes",
+  "order_now": "Order Now",
+  "ok": "OK",
+  "size": "Size"
+}
