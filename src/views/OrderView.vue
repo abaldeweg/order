@@ -68,8 +68,8 @@ export default {
           padding: 10,
         },
         {
-          id: 'counter',
-          name: 'counter',
+          id: 'quantity',
+          name: 'quantity',
           prompt: i18n.t('quantity'),
           width: 50,
           align: 'left',
@@ -79,7 +79,7 @@ export default {
 
       const data = (val) => {
         for (var key in val) {
-          val[key].counter = val[key].counter.toString()
+          val[key].quantity = val[key].quantity.toString()
         }
 
         return val

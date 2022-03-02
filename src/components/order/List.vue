@@ -4,7 +4,7 @@
       <template #title>{{ item.name }}</template>
 
       <template #meta>
-        {{ $t('quantity') }}: {{ item.counter }} &bull; {{ $t('size') }}:
+        {{ $t('quantity') }}: {{ item.quantity }} &bull; {{ $t('size') }}:
         {{ item.size }}
       </template>
 

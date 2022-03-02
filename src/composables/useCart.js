@@ -8,7 +8,7 @@ export default function useCart() {
   const counter = computed(() => {
     let items = 0
     articles.value.forEach((element) => {
-      items += element.counter
+      items += element.quantity
     })
 
     return items
@@ -21,10 +21,10 @@ export default function useCart() {
   const add = (name, size) => {
     let index = getIndex(name, size)
     if (index === -1) {
-      articles.value.unshift({ name, size, counter: 1 })
+      articles.value.unshift({ name, size, quantity: 1 })
     }
     if (index >= 0) {
-      articles.value[index].counter++
+      articles.value[index].quantity++
     }
     save()
   }
