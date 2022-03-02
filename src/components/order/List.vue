@@ -1,7 +1,7 @@
 <template>
   <section>
     <b-list divider v-for="(item, index) in articles" :key="index">
-      <template #title>{{ item.name }} ({{ item.size }})</template>
+      <template #title>{{ item.name }}</template>
 
       <template #meta>
         {{ $t('quantity') }}: {{ item.counter }} &bull; {{ $t('size') }}:
