@@ -18,7 +18,10 @@
             />
           </div>
           <div class="item">
-            <b-button design="text" @click="addItem(item, size)"
+            <b-button
+              design="text"
+              @click="addItem(item, size)"
+              :style="{ lineHeight: '0' }"
               ><b-icon type="plus" :size="25"
             /></b-button>
           </div>
@@ -48,6 +51,7 @@ export default {
 <style scoped>
 .items {
   display: flex;
+  align-items: center;
 }
 .item {
   margin-left: 20px;
