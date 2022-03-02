@@ -85,7 +85,9 @@ export default {
         return val
       }
 
-      doc.table(10, 10, data(articles.value), headers)
+      doc.table(10, 10, data(articles.value), headers, {
+        headerBackgroundColor: '#ffffff',
+      })
 
       doc
         .save('order_' + new Date() / 1000 + '.pdf', {
