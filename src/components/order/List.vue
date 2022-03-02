@@ -5,17 +5,18 @@
         <span @click="addItem(item)">{{ item.name }} ({{ item.size }})</span>
       </template>
 
+      <template #meta>
+        {{ $t('quantity') }}: {{ item.counter }} &bull; {{ $t('size') }}:
+        {{ item.size }}
+      </template>
+
       <template #options>
-        <div class="items">
-          <div class="item">
-            {{ item.counter }}
-          </div>
-          <div class="item">
-            <span @click="removeItem(index)"
-              ><b-icon type="bin" :size="25"
-            /></span>
-          </div>
-        </div>
+        <b-button
+          design="text"
+          @click="removeItem(index)"
+          :style="{ lineHeight: '0' }"
+          ><b-icon type="bin" :size="25"
+        /></b-button>
       </template>
     </b-list>
   </section>
@@ -37,6 +38,7 @@ export default {
 <style scoped>
 .items {
   display: flex;
+  align-items: center;
 }
 .item {
   margin-left: 20px;

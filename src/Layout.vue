@@ -18,6 +18,14 @@
       </b-masthead-item>
     </b-masthead>
 
+    <b-container size="m">
+      <b-alert type="error">
+        <p>
+          {{ $t('order_info') }}
+        </p>
+      </b-alert>
+    </b-container>
+
     <slot />
   </b-app>
 </template>
