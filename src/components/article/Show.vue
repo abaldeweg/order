@@ -33,6 +33,7 @@
 
 <script>
 import useCart from '@/composables/useCart'
+import { ref } from '@vue/composition-api'
 
 export default {
   name: 'article-show',
@@ -40,7 +41,7 @@ export default {
     item: String,
   },
   setup() {
-    const size = null
+    const size = ref(null)
     const { add } = useCart()
 
     return { size, add }
