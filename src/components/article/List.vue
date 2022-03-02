@@ -20,9 +20,9 @@ export default {
   setup() {
     const inventory = process.env.VUE_APP_INVENTORY.split(',')
 
-    const { addItem } = useCart()
+    const { add } = useCart()
 
-    return { inventory, addItem }
+    return { inventory, add }
   },
 }
 </script>

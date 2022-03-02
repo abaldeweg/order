@@ -6,22 +6,22 @@ export const articles = ref(
 
 export default function useCart() {
   const counter = computed(() => {
-    let counter = 0
+    let items = 0
     articles.value.forEach((element) => {
-      counter = counter + element.counter
+      items += element.counter
     })
 
-    return counter
+    return items
   })
 
   const save = () => {
     localStorage.setItem('order_cart', JSON.stringify(articles.value))
   }
 
-  const addItem = (item, size) => {
-    let index = getIndex(item, size)
+  const add = (name, size) => {
+    let index = getIndex(name, size)
     if (index === -1) {
-      articles.value.unshift({ name: item, counter: 1, size: size })
+      articles.value.unshift({ name, size, counter: 1 })
     }
     if (index >= 0) {
       articles.value[index].counter++
@@ -29,14 +29,14 @@ export default function useCart() {
     save()
   }
 
-  const removeItem = (index) => {
+  const remove = (index) => {
     articles.value.splice(index, 1)
     save()
   }
 
   const clear = () => {
     articles.value = []
-    localStorage.removeItem('order_cart')
+    localStorage.remove('order_cart')
   }
 
   const getIndex = (item, size) => {
@@ -48,8 +48,8 @@ export default function useCart() {
   return {
     articles,
     counter,
-    addItem,
-    removeItem,
+    add,
+    remove,
     clear,
   }
 }

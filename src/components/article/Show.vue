@@ -2,7 +2,7 @@
   <section>
     <b-list divider>
       <template #title>
-        <span @click="addItem(item, size)">{{ item }}</span>
+        <span @click="add(item, size)">{{ item }}</span>
       </template>
 
       <template #options>
@@ -20,7 +20,7 @@
           <div class="item">
             <b-button
               design="text"
-              @click="addItem(item, size)"
+              @click="add(item, size)"
               :style="{ lineHeight: '0' }"
               ><b-icon type="plus" :size="25"
             /></b-button>
@@ -41,9 +41,9 @@ export default {
   },
   setup() {
     const size = null
-    const { addItem } = useCart()
+    const { add } = useCart()
 
-    return { size, addItem }
+    return { size, add }
   },
 }
 </script>
