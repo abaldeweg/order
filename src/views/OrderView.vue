@@ -32,6 +32,7 @@ import { ref } from '@vue/composition-api'
 import { jsPDF } from 'jspdf'
 import useCart from '@/composables/useCart'
 import i18n from '~b/i18n'
+import 'jspdf-autotable'
 
 export default {
   name: 'order-view',
@@ -50,43 +51,34 @@ export default {
     const download = () => {
       const doc = new jsPDF()
 
-      const headers = [
-        {
-          id: 'name',
-          name: 'name',
-          prompt: i18n.t('name'),
-          width: 150,
-          align: 'left',
-          padding: 10,
-        },
-        {
-          id: 'size',
-          name: 'size',
-          prompt: i18n.t('size'),
-          width: 50,
-          align: 'left',
-          padding: 10,
-        },
-        {
-          id: 'quantity',
-          name: 'quantity',
-          prompt: i18n.t('quantity'),
-          width: 50,
-          align: 'left',
-          padding: 10,
-        },
-      ]
+      const data = () => {
+        let list = []
 
-      const data = (val) => {
-        for (var key in val) {
-          val[key].quantity = val[key].quantity.toString()
-        }
+        articles.value.forEach((element) => {
+          list.push([element.name, element.size, element.quantity])
+        })
 
-        return val
+        return list
       }
 
-      doc.table(10, 10, data(articles.value), headers, {
-        headerBackgroundColor: '#ffffff',
+      doc.setFontSize(12)
+      doc.text('Order', 15, 20)
+
+      doc.autoTable({
+        theme: 'plain',
+        styles: {
+          fontSize: 12,
+          lineColor: '#cccccc',
+          lineWidth: 0.1,
+        },
+        columnStyles: {
+          0: { cellWidth: 'auto' },
+          1: { cellWidth: 20 },
+          2: { cellWidth: 20 },
+        },
+        head: [[i18n.t('name'), i18n.t('size'), i18n.t('quantity')]],
+        body: data(),
+        startY: 50,
       })
 
       doc
