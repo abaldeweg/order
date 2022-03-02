@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import useCart from '@/composables/useCart'
 import ArticleShow from '@/components/article/Show'
 
 export default {
@@ -20,9 +19,7 @@ export default {
   setup() {
     const inventory = process.env.VUE_APP_INVENTORY.split(',')
 
-    const { add } = useCart()
-
-    return { inventory, add }
+    return { inventory }
   },
 }
 </script>
