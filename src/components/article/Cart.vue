@@ -1,6 +1,6 @@
 <template>
   <div @click="$router.push({ name: 'order' })">
-    <b-icon type="cart" /> ({{ counter }})
+    <b-badge :content="'' + counter"><b-icon type="cart" /></b-badge>
   </div>
 </template>
 
