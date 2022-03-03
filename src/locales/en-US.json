@@ -8,7 +8,7 @@
   "cart": "Cart",
   "articles": "Articles",
   "order": "Order",
-  "order_info": "It's not possible to submit an order. The ordering process is not yet implemented.",
+  "order_info": "This is a development version. There might be errors and some features are still missing.",
   "personal_details": "Personal Details",
   "staff_number": "Staff Number",
   "firstname": "Firstname",

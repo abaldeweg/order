@@ -8,7 +8,7 @@
   "cart": "Warenkorb",
   "articles": "Artikel",
   "order": "Bestellen",
-  "order_info": "Die Bestellung kann derzeit nicht abgeschlossen werden. Die dafür notwendige Funktionalität wurde noch nicht implementiert.",
+  "order_info": "Dies ist eine Entwicklungsversion. Es können Fehler auftreten und einige Funktionen fehlen noch.",
   "personal_details": "Persönliche Details",
   "staff_number": "Personalnummer",
   "firstname": "Vorname",
