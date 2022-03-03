@@ -27,12 +27,23 @@
     </b-container>
 
     <slot />
+
+    <b-toast v-if="current" :type="current.type" :visible="true">{{
+      current.body
+    }}</b-toast>
   </b-app>
 </template>
 
 <script>
+import useToast from '@baldeweg/components/src/composables/useToast'
+
 export default {
   name: 'layout',
+  setup() {
+    const { current } = useToast()
+
+    return { current }
+  },
 }
 </script>
 

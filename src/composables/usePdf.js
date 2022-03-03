@@ -1,5 +1,6 @@
 import useCart from '@/composables/useCart'
 import usePersonalDetails from '@/composables/usePersonalDetails'
+import useToast from '@baldeweg/components/src/composables/useToast'
 import i18n from '~b/i18n'
 import { ref, computed } from '@vue/composition-api'
 import { jsPDF } from 'jspdf'
@@ -10,6 +11,7 @@ export default function usePdf() {
 
   const { articles } = useCart()
   const { state } = usePersonalDetails()
+  const { add } = useToast()
 
   const doc = new jsPDF()
 
@@ -85,6 +87,7 @@ export default function usePdf() {
       })
       .then(() => {
         isGenerating.value = false
+        add({ type: 'success', body: i18n.t('pdf_generated') })
       })
   }
 
