@@ -1,5 +1,5 @@
 <template>
-  <b-form @submit.prevent="$emit('send', state)">
+  <b-form @submit.prevent="$emit('send')">
     <b-form-group>
       <b-form-item>
         <b-form-label for="staff_number">{{ $t('staff_number') }}</b-form-label>
@@ -45,17 +45,12 @@
 </template>
 
 <script>
-import { reactive } from '@vue/composition-api'
+import usePersonalDetails from '@/composables/usePersonalDetails'
 
 export default {
   name: 'order-details',
   setup() {
-    const state = reactive({
-      staffNumber: null,
-      firstname: null,
-      surname: null,
-      notes: null,
-    })
+    const { state } = usePersonalDetails()
 
     return { state }
   },

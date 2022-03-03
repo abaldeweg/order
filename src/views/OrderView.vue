@@ -33,6 +33,7 @@ import { jsPDF } from 'jspdf'
 import useCart from '@/composables/useCart'
 import i18n from '~b/i18n'
 import 'jspdf-autotable'
+import usePersonalDetails from '@/composables/usePersonalDetails'
 
 export default {
   name: 'order-view',
@@ -47,8 +48,9 @@ export default {
     const dialog = ref(false)
 
     const { articles } = useCart()
+    const { state: details } = usePersonalDetails()
 
-    const download = (details) => {
+    const download = () => {
       const doc = new jsPDF()
 
       const data = () => {
@@ -111,9 +113,9 @@ export default {
         })
     }
 
-    const send = (details) => {
+    const send = () => {
       dialog.value = true
-      download(details)
+      download()
     }
 
     return { dialog, send }
