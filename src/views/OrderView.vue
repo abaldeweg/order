@@ -48,7 +48,7 @@ export default {
 
     const { articles } = useCart()
 
-    const download = () => {
+    const download = (details) => {
       const doc = new jsPDF()
 
       const data = () => {
@@ -62,7 +62,14 @@ export default {
       }
 
       doc.setFontSize(12)
-      doc.text('Order', 15, 20)
+      doc.text(
+        [
+          details.staffNumber ?? '',
+          (details.firstname ?? '') + ' ' + (details.surname ?? ''),
+        ],
+        15,
+        20
+      )
 
       doc.autoTable({
         theme: 'plain',
@@ -81,8 +88,22 @@ export default {
         startY: 50,
       })
 
+      doc.autoTable({
+        theme: 'plain',
+        styles: {
+          fontSize: 12,
+          lineColor: '#cccccc',
+          lineWidth: 0.1,
+        },
+        columnStyles: {
+          0: { cellWidth: 'auto' },
+        },
+        head: [[i18n.t('notes')]],
+        body: [[details.notes ?? '']],
+      })
+
       doc
-        .save('order_' + new Date() / 1000 + '.pdf', {
+        .save('order_' + Math.round(new Date() / 1000) + '.pdf', {
           returnPromise: true,
         })
         .then(() => {
@@ -90,9 +111,9 @@ export default {
         })
     }
 
-    const send = () => {
+    const send = (details) => {
       dialog.value = true
-      download()
+      download(details)
     }
 
     return { dialog, send }

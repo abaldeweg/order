@@ -1,11 +1,11 @@
 <template>
-  <b-form @submit.prevent="$emit('send')">
+  <b-form @submit.prevent="$emit('send', state)">
     <b-form-group>
       <b-form-item>
         <b-form-label for="staff_number">{{ $t('staff_number') }}</b-form-label>
       </b-form-item>
       <b-form-item>
-        <b-form-input id="staff_number" />
+        <b-form-input id="staff_number" v-model="state.staffNumber" />
       </b-form-item>
     </b-form-group>
 
@@ -14,7 +14,7 @@
         <b-form-label for="firstname">{{ $t('firstname') }}</b-form-label>
       </b-form-item>
       <b-form-item>
-        <b-form-input id="firstname" />
+        <b-form-input id="firstname" v-model="state.firstname" />
       </b-form-item>
     </b-form-group>
 
@@ -23,7 +23,7 @@
         <b-form-label for="surname">{{ $t('surname') }}</b-form-label>
       </b-form-item>
       <b-form-item>
-        <b-form-input id="surname" />
+        <b-form-input id="surname" v-model="state.surname" />
       </b-form-item>
     </b-form-group>
 
@@ -32,7 +32,7 @@
         <b-form-label for="notes">{{ $t('notes') }}</b-form-label>
       </b-form-item>
       <b-form-item>
-        <b-form-textarea id="notes" />
+        <b-form-textarea id="notes" maxlength="255" v-model="state.notes" />
       </b-form-item>
     </b-form-group>
 
@@ -45,7 +45,19 @@
 </template>
 
 <script>
+import { reactive } from '@vue/composition-api'
+
 export default {
   name: 'order-details',
+  setup() {
+    const state = reactive({
+      staffNumber: null,
+      firstname: null,
+      surname: null,
+      notes: null,
+    })
+
+    return { state }
+  },
 }
 </script>
