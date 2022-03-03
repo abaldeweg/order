@@ -62,8 +62,10 @@ export default function usePdf() {
   const download = () => {
     isGenerating.value = true
 
+    doc.setFontSize(16)
+    doc.text(i18n.t('order'), 15, 20)
     doc.setFontSize(12)
-    doc.text(personalDetails.value, 15, 20)
+    doc.text(personalDetails.value, 15, 35)
     doc.autoTable({
       theme,
       styles,

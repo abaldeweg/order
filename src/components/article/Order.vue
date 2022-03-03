@@ -1,6 +1,6 @@
 <template>
   <b-button design="primary_wide" @click="$router.push({ name: 'order' })"
-    >{{ $t('order') }} ({{ counter }})</b-button
+    >{{ $t('ordering') }} ({{ counter }})</b-button
   >
 </template>
 
