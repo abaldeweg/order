@@ -1,9 +1,16 @@
+import { reactive } from '@vue/composition-api'
 import i18n from '~b/i18n'
 import { jsPDF } from 'jspdf'
 import 'jspdf-autotable'
 
-export default function useCart(articles, details, dialog) {
+export default function useCart(articles, details) {
+  const state = reactive({
+    isGenerating: false,
+  })
+
   const download = () => {
+    state.isGenerating = true
+
     const doc = new jsPDF()
 
     const data = () => {
@@ -62,11 +69,12 @@ export default function useCart(articles, details, dialog) {
         returnPromise: true,
       })
       .then(() => {
-        dialog.value = false
+        state.isGenerating = false
       })
   }
 
   return {
+    state,
     download,
   }
 }
