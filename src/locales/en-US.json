@@ -8,7 +8,7 @@
   "cart": "Cart",
   "articles": "Articles",
   "order": "Order",
-  "order_info": "This is a development version. There might be errors and some features are still missing.",
+  "order_info": "This is a development version. There might be errors and some features are still missing. Find the code at https://github.com/abaldeweg/order",
   "personal_details": "Personal Details",
   "staff_number": "Staff Number",
   "firstname": "Firstname",
