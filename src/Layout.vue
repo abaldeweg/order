@@ -20,9 +20,7 @@
 
     <b-container size="m">
       <b-alert type="error">
-        <p>
-          {{ $t('order_info') }}
-        </p>
+        <p v-html="$t('order_info')" />
       </b-alert>
     </b-container>
 

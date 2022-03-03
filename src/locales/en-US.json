@@ -9,7 +9,7 @@
   "articles": "Articles",
   "order": "Order",
   "ordering": "Ordering",
-  "order_info": "This is a development version. There might be errors and some features are still missing. Find the code at https://github.com/abaldeweg/order",
+  "order_info": "This is a development version. There might be errors and some features are still missing. Find the code in the <a href=\"https://github.com/abaldeweg/order\">respository</a>.",
   "personal_details": "Personal Details",
   "staff_number": "Staff Number",
   "firstname": "Firstname",

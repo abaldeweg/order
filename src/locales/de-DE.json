@@ -9,7 +9,7 @@
   "articles": "Artikel",
   "order": "Bestellung",
   "ordering": "Bestellen",
-  "order_info": "Dies ist eine Entwicklungsversion. Es können Fehler auftreten und einige Funktionen fehlen noch. Der Code befindet sich unter https://github.com/abaldeweg/order",
+  "order_info": "Dies ist eine Entwicklungsversion. Es können Fehler auftreten und einige Funktionen fehlen noch. Der Code befindet sich im <a href=\"https://github.com/abaldeweg/order\">Repository</a>.",
   "personal_details": "Persönliche Details",
   "staff_number": "Personalnummer",
   "firstname": "Vorname",
