@@ -32,13 +32,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.items {
-  display: flex;
-  align-items: center;
-}
-.item {
-  margin-left: 20px;
-}
-</style>
