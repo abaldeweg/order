@@ -55,6 +55,7 @@ export default {
   align-items: center;
 }
 .item {
+  min-width: 50px;
   margin-left: 20px;
 }
 </style>
