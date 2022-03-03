@@ -29,11 +29,9 @@
 import OrderList from '@/components/order/List'
 import OrderDetails from '@/components/order/Details'
 import { ref } from '@vue/composition-api'
-import { jsPDF } from 'jspdf'
 import useCart from '@/composables/useCart'
-import i18n from '~b/i18n'
-import 'jspdf-autotable'
 import usePersonalDetails from '@/composables/usePersonalDetails'
+import usePdf from '@/composables/usePdf'
 
 export default {
   name: 'order-view',
@@ -50,68 +48,7 @@ export default {
     const { articles } = useCart()
     const { state: details } = usePersonalDetails()
 
-    const download = () => {
-      const doc = new jsPDF()
-
-      const data = () => {
-        let list = []
-
-        articles.value.forEach((element) => {
-          list.push([element.name, element.size, element.quantity])
-        })
-
-        return list
-      }
-
-      doc.setFontSize(12)
-      doc.text(
-        [
-          details.staffNumber ?? '',
-          (details.firstname ?? '') + ' ' + (details.surname ?? ''),
-        ],
-        15,
-        20
-      )
-
-      doc.autoTable({
-        theme: 'plain',
-        styles: {
-          fontSize: 12,
-          lineColor: '#cccccc',
-          lineWidth: 0.1,
-        },
-        columnStyles: {
-          0: { cellWidth: 'auto' },
-          1: { cellWidth: 20 },
-          2: { cellWidth: 20 },
-        },
-        head: [[i18n.t('name'), i18n.t('size'), i18n.t('quantity')]],
-        body: data(),
-        startY: 50,
-      })
-
-      doc.autoTable({
-        theme: 'plain',
-        styles: {
-          fontSize: 12,
-          lineColor: '#cccccc',
-          lineWidth: 0.1,
-        },
-        columnStyles: {
-          0: { cellWidth: 'auto' },
-        },
-        head: [[i18n.t('notes')]],
-        body: [[details.notes ?? '']],
-      })
-
-      doc
-        .save('order_' + Math.round(new Date() / 1000) + '.pdf', {
-          returnPromise: true,
-        })
-        .then(() => {
-          dialog.value = false
-        })
-    }
+    const { download } = usePdf(articles, details, dialog)
 
     const send = () => {
       dialog.value = true
