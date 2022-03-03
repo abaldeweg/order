@@ -1,67 +1,80 @@
-import { reactive } from '@vue/composition-api'
+import useCart from '@/composables/useCart'
+import usePersonalDetails from '@/composables/usePersonalDetails'
 import i18n from '~b/i18n'
+import { ref, computed } from '@vue/composition-api'
 import { jsPDF } from 'jspdf'
 import 'jspdf-autotable'
 
-export default function useCart(articles, details) {
-  const state = reactive({
-    isGenerating: false,
+export default function usePdf() {
+  const isGenerating = ref(false)
+
+  const { articles } = useCart()
+  const { state } = usePersonalDetails()
+
+  const doc = new jsPDF()
+
+  const theme = 'plain'
+
+  const styles = {
+    fontSize: 12,
+    lineColor: '#cccccc',
+    lineWidth: 0.1,
+  }
+
+  const personalDetails = computed(() => {
+    return [
+      (state.firstname ?? '') + ' ' + (state.surname ?? ''),
+      state.staffNumber ?? '',
+    ]
+  })
+
+  const data = computed(() => {
+    let list = []
+
+    articles.value.forEach((element) => {
+      list.push([element.name, element.size, element.quantity])
+    })
+
+    list.push([
+      {
+        content: '',
+        colSpan: 3,
+        styles: { lineWidth: 0 },
+      },
+    ])
+    list.push([
+      {
+        content: i18n.t('notes'),
+        colSpan: 3,
+        styles: { fontStyle: 'bold' },
+      },
+    ])
+    list.push([
+      {
+        content: state.notes ?? '',
+        colSpan: 3,
+      },
+    ])
+
+    return list
   })
 
   const download = () => {
-    state.isGenerating = true
-
-    const doc = new jsPDF()
-
-    const data = () => {
-      let list = []
-
-      articles.value.forEach((element) => {
-        list.push([element.name, element.size, element.quantity])
-      })
-
-      return list
-    }
+    isGenerating.value = true
 
     doc.setFontSize(12)
-    doc.text(
-      [
-        details.staffNumber ?? '',
-        (details.firstname ?? '') + ' ' + (details.surname ?? ''),
-      ],
-      15,
-      20
-    )
-
+    doc.text(personalDetails.value, 15, 20)
     doc.autoTable({
-      theme: 'plain',
-      styles: {
-        fontSize: 12,
-        lineColor: '#cccccc',
-        lineWidth: 0.1,
-      },
+      theme,
+      styles,
       columnStyles: {
         0: { cellWidth: 'auto' },
         1: { cellWidth: 20 },
         2: { cellWidth: 20 },
       },
-      head: [[i18n.t('name'), i18n.t('size'), i18n.t('quantity')]],
-      body: data(),
+      head: [[i18n.t('article'), i18n.t('size'), i18n.t('quantity')]],
+      body: data.value,
       startY: 50,
-    })
-
-    doc.autoTable({
-      theme: 'plain',
-      styles: {
-        fontSize: 12,
-        lineColor: '#cccccc',
-        lineWidth: 0.1,
-      },
-      columnStyles: {
-        0: { cellWidth: 'auto' },
-      },
-      head: [[i18n.t('notes')]],
-      body: [[details.notes ?? '']],
     })
 
     doc
@@ -69,12 +82,12 @@ export default function useCart(articles, details) {
         returnPromise: true,
       })
       .then(() => {
-        state.isGenerating = false
+        isGenerating.value = false
       })
   }
 
   return {
-    state,
+    isGenerating,
     download,
   }
 }

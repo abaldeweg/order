@@ -12,9 +12,18 @@
     <b-container size="m">
       <h2>{{ $t('personal_details') }}</h2>
 
-      <order-details @send="send" />
+      <order-details />
 
-      <b-spinner size="m" v-if="pdf_state.isGenerating" />
+      <b-form @submit.prevent="download">
+        <b-form-group>
+          <b-form-item>
+            <b-button design="primary_wide" v-if="!isGenerating">{{
+              $t('order_now')
+            }}</b-button>
+            <b-spinner size="m" v-if="isGenerating" />
+          </b-form-item>
+        </b-form-group>
+      </b-form>
     </b-container>
   </section>
 </template>
@@ -22,8 +31,6 @@
 <script>
 import OrderList from '@/components/order/List'
 import OrderDetails from '@/components/order/Details'
-import useCart from '@/composables/useCart'
-import usePersonalDetails from '@/composables/usePersonalDetails'
 import usePdf from '@/composables/usePdf'
 
 export default {
@@ -36,16 +43,9 @@ export default {
     title: 'Order',
   },
   setup() {
-    const { articles } = useCart()
-    const { state: details } = usePersonalDetails()
+    const { isGenerating, download } = usePdf()
 
-    const { state: pdf_state, download } = usePdf(articles, details)
-
-    const send = () => {
-      download()
-    }
-
-    return { pdf_state, send }
+    return { isGenerating, download }
   },
 }
 </script>

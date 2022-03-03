@@ -1,5 +1,5 @@
 <template>
-  <b-form @submit.prevent="$emit('send')">
+  <b-form @submit.prevent>
     <b-form-group>
       <b-form-item>
         <b-form-label for="staff_number">{{ $t('staff_number') }}</b-form-label>
@@ -33,12 +33,6 @@
       </b-form-item>
       <b-form-item>
         <b-form-textarea id="notes" maxlength="255" v-model="state.notes" />
-      </b-form-item>
-    </b-form-group>
-
-    <b-form-group>
-      <b-form-item>
-        <b-button design="primary_wide">{{ $t('order_now') }}</b-button>
       </b-form-item>
     </b-form-group>
   </b-form>
