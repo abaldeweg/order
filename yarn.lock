@@ -941,24 +941,24 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@baldeweg/components@7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@baldeweg/components/-/components-7.2.0.tgz#7ba3763c07c4155cf6d4b91fcc2c5a1b320df689"
-  integrity sha512-bNNSW9V+o4hOMZtGlkH+GuejFi7ILrMLLKXuzOP7pMMsZY14hnUQFiKMLTnGNs5u7L8a1h9WyPVl8mLpp0Bzxg==
+"@baldeweg/components@7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@baldeweg/components/-/components-7.3.0.tgz#31a580a879ae457be86c1c28ffea19c6158fae3a"
+  integrity sha512-hTVIP98sVEQ7jy6dfOVF6nPBy6rh8VECHc+XixsI9dshvGStL1xLdKUojyslfuYDEDp3MSDt0SBUDGg18UapiA==
   dependencies:
     core-js "3.21.1"
     vue "2.6.14"
     vue-meta "2.4.0"
     vue-router "3.5.3"
 
-"@baldeweg/vue-cli-plugin-components@0.4.5":
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/@baldeweg/vue-cli-plugin-components/-/vue-cli-plugin-components-0.4.5.tgz#67b92ded737a99675effe7dbf953ea92d722d028"
-  integrity sha512-pSPnBsmPTXJgV5JZsYm7sQNa2O1yCaGTLGdxa3t4T365iYsUPwzoXBlSHVNnb317W+duIZFBU83KdDKmp+Ounw==
+"@baldeweg/vue-cli-plugin-components@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@baldeweg/vue-cli-plugin-components/-/vue-cli-plugin-components-0.5.0.tgz#ab09e400f6a59fe13392590d900ed61b9629f136"
+  integrity sha512-hdFrtP23R/uD4+j7HHn6QmeKTJzLt0yUXLvI/LXs+srTjSn0qIuMecGzzhCv8XIOXbw52fcrOZ/grZgOcwOhZA==
   dependencies:
-    "@baldeweg/components" "7.2.0"
+    "@baldeweg/components" "7.3.0"
     "@vue/composition-api" "1.4.9"
-    axios "0.26.0"
+    axios "0.26.1"
     fs-extra "10.0.1"
     js-cookie "3.0.1"
     rimraf "3.0.2"
@@ -2314,10 +2314,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
-axios@0.26.0:
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.0.tgz#9a318f1c69ec108f8cd5f3c3d390366635e13928"
-  integrity sha512-lKoGLMYtHvFrPVt3r+RBMp9nh34N0M8zEfCWqdWZx6phynIEhQqAdydpyBAAG211zlhX9Rgu08cOamy6XjE5Og==
+axios@0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.1.tgz#1ede41c51fcf51bbbd6fd43669caaa4f0495aaa9"
+  integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
   dependencies:
     follow-redirects "^1.14.8"
 
