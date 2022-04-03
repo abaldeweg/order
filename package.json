@@ -12,17 +12,17 @@
     "watch": "vue-cli-service serve"
   },
   "dependencies": {
-    "@baldeweg/components": "^7.3.0",
-    "@vue/composition-api": "^1.4.9",
-    "axios": "^0.26.1",
+    "@baldeweg/components": "7.3.0",
+    "@vue/composition-api": "1.4.9",
+    "axios": "0.26.1",
     "core-js": "3.21.1",
-    "js-cookie": "^3.0.1",
+    "js-cookie": "3.0.1",
     "jspdf": "2.5.1",
     "jspdf-autotable": "3.5.23",
     "register-service-worker": "1.7.2",
     "vue": "2.6.14",
     "vue-i18n": "8.27.1",
-    "vue-meta": "^2.4.0",
+    "vue-meta": "2.4.0",
     "vue-router": "3.5.3"
   },
   "devDependencies": {
