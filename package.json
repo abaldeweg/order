@@ -8,21 +8,24 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "components:generate": "vue-cli-service components:generate",
-    "i18n:report": "vue-cli-service i18n:report --src \"./{src,.components}/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
     "watch": "vue-cli-service serve"
   },
   "dependencies": {
+    "@baldeweg/components": "^7.3.0",
+    "@vue/composition-api": "^1.4.9",
+    "axios": "^0.26.1",
     "core-js": "3.21.1",
+    "js-cookie": "^3.0.1",
     "jspdf": "2.5.1",
     "jspdf-autotable": "3.5.23",
     "register-service-worker": "1.7.2",
     "vue": "2.6.14",
     "vue-i18n": "8.27.1",
+    "vue-meta": "^2.4.0",
     "vue-router": "3.5.3"
   },
   "devDependencies": {
-    "@baldeweg/vue-cli-plugin-components": "0.5.0",
     "@vue/cli-plugin-babel": "4.5.17",
     "@vue/cli-plugin-e2e-cypress": "4.5.17",
     "@vue/cli-plugin-eslint": "4.5.17",

@@ -1,7 +1,7 @@
 import useCart from '@/composables/useCart'
 import usePersonalDetails from '@/composables/usePersonalDetails'
 import useToast from '@baldeweg/components/src/composables/useToast'
-import i18n from '~b/i18n'
+import i18n from '@/i18n'
 import { ref, computed } from '@vue/composition-api'
 import { jsPDF } from 'jspdf'
 import 'jspdf-autotable'

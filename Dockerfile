@@ -7,7 +7,6 @@ COPY ./package.json ./
 COPY ./yarn.lock ./
 RUN yarn install
 COPY . .
-RUN yarn components:generate
 
 ARG VUE_APP_I18N_LOCALE
 ENV VUE_APP_I18N_LOCALE=$VUE_APP_I18N_LOCALE
